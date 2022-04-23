@@ -23,7 +23,7 @@ const Main = () => {
         
         {items.map(item => {
 
-           return <pre key={item.id}><br />{JSON.stringify([item])}</pre>
+           return <li key={item.id}><br />{JSON.stringify([item])}</li>
 
         })}
         
