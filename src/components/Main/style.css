@@ -24,3 +24,12 @@
 }
 
 .button:hover {opacity: 0.5}
+
+.loading {
+	color: #fcf0e1;
+	background: #CD5C5C;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
