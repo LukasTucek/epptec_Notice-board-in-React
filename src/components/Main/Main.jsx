@@ -9,9 +9,9 @@ const Main = () => {
     const [comments, setComments] = useState(null);
 
 
-//async function -> potřeba využít async/await? Jinak budeme muset čekat na odpovědi. Zde ale nevím, kdy se mi vrátí data.
-//"The keyword await makes JavaScript wait until that promise settles and returns its result."
-//Všechny 3 dotazy probíhají najednou
+    //async function -> potřeba využít async/await? Jinak budeme muset čekat na odpovědi. Zde ale nevím, kdy se mi vrátí data.
+    //"The keyword await makes JavaScript wait until that promise settles and returns its result."
+    //Všechny 3 dotazy probíhají najednou
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts`)
             .then(response => response.json())
@@ -45,17 +45,25 @@ const Main = () => {
     }
 
 
+    //fce na zkrácení zobrazovaného textu mi nefunguje, vyřešeno pomocí CSS
+    const truncate = ({bodyLength}) => {
+        return bodyLength?.length > 50 
+        ? `${bodyLength.substring(0, 30)}...` 
+        : bodyLength;
+}
+
+
     return (
         <>
         { 
             (posts === null || users === null || comments === null) //když je alespoň jedno z nich null
-            ? <p class="loading">loading data...</p>
+            ? <p class="loading">loading data...</p> 
             :   <ul>
                 {posts.map(post => (
                     <div key={post.id} className="post">
                         <h2>{post.title}</h2>
-                        <h3>Author - {authorName(post.userId)}</h3>
-                        <p>{post.body}</p>
+                        <h3>🗨️ {authorName(post.userId)}</h3>
+                        <p className="truncate">{post.body}</p>
                         <button className="button">Show more...</button>
                         <button className="button">Comments ({commentsCount(post.Id)})</button>
                     </div>
@@ -63,9 +71,15 @@ const Main = () => {
                 </ul>
         }
 
-            {/*<Post title={post.title} body={post.body} author={post.author} />*/}
+        
+        {/*<Post title={post.title} body={post.body} author={post.author} />*/}
 
         </>
+
+
+
+
+
     );
 
 };

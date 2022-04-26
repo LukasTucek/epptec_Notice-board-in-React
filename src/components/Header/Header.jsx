@@ -7,7 +7,7 @@ const Header = ( {title} ) => {
         <>   
             <header className="header">
 			    <h1 className="header__title">{title}</h1>
-			    <h2 className="header__description">Need some inspiration? 💡 Take a look at what we have for you.</h2>
+			    <h2 className="header__description">Need some inspiration? 💡<br /> Take a look at what we have for you.</h2>
             </header>
         </> 
     )

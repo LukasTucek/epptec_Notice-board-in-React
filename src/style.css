@@ -16,7 +16,15 @@ body {
 }
 
 .container {
-  max-width: 1600px;
+  max-width: 1000px;
   margin: 0 auto;
-  border: 1px solid rgba(255, 255, 255, 0.151);
+  border: 1px solid rgba(255, 255, 255, 0.722);
+  border-radius: 1.5rem;
+  text-align: center;
+}
+
+h3 {
+  font-style: italic;
+  font-weight: lighter;
+  color: #fcf0e175;
 }

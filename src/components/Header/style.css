@@ -6,8 +6,8 @@
 }
 
 .header__title {
-	margin: -15px 100px 15px 100px;
-	padding: 10px 40px;
+	margin: -15px 50px 10px 100px;
+	padding: 20px 60px;
 	color: #fcf0e1;
 	background: #CD5C5C;
     text-transform: uppercase;
@@ -23,5 +23,4 @@
 	color: #fcf0e1;
     font-size: 25px;
     font-weight: lighter;
-    
 }
