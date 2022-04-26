@@ -1,7 +1,7 @@
-.content {
-    font-size: 30px;
-    color: #fcf0e1;
-    padding: 100px;
+.post {
+    border: 1px solid #CD5C5C;
+    padding: 10px;
+    margin: 10px;
 }
 
 .button {
@@ -12,9 +12,9 @@
     color: #fcf0e1;
     text-align: center;
     text-decoration: none;
-    font-size: 12px;
-    padding: 10px;
-    width: 120px;
+    font-size: 20px;
+    padding: 12px;
+    width: 180px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -24,3 +24,8 @@
 }
 
 .button:hover {opacity: 0.5}
+
+h2 {
+    font-style: italic;
+    font-weight: lighter;
+}

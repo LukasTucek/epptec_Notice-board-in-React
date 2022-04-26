@@ -4,7 +4,7 @@ import './style.css';
 const Detail = () => {
     return (
            
-       <p>detail</p>
+       <p>Detail postu</p>
 
     )
 
