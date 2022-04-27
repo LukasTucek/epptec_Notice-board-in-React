@@ -2,6 +2,8 @@ import React from 'react';
 import './style.css';
 //import Post from '../Post/Post';
 import { useEffect, useState } from 'react';
+//import Router components
+import {Link} from "react-router-dom";
 
 const Main = () => {
     const [posts, setPosts] = useState(null);
@@ -9,9 +11,8 @@ const Main = () => {
     const [comments, setComments] = useState(null);
 
 
-    //async function -> potřeba využít async/await? Jinak budeme muset čekat na odpovědi. Zde ale nevím, kdy se mi vrátí data.
+    //async function -> potřeba využít async/await? Jinak budeme muset čekat na odpovědi. Zde totiž nevím, kdy se mi vrátí data => vyřešil jsem přes podmínku
     //"The keyword await makes JavaScript wait until that promise settles and returns its result."
-    //Všechny 3 dotazy probíhají najednou
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts`)
             .then(response => response.json())
@@ -41,16 +42,17 @@ const Main = () => {
     //comments count
     const commentsCount = (postId) => {
        return comments.filter(comment => comment.postId === postId).length
-    }
+    };
 
     //text truncator 
     const truncate = (textLength) => {
         return textLength.length > 60 
-        ? `${textLength.substring(0, 50)}...` 
+        ? `${textLength.substring(0, 50)}...`  //zde je možné měnit zobrazovaný počet znaků
         : textLength;
-    }
+    };
 
     return (
+
         <>
         { 
             (posts === null || users === null || comments === null) //když je alespoň jedno z nich null, tak zobraz <p>, jinak zobraz <ul>
@@ -61,24 +63,17 @@ const Main = () => {
                         <h2>{post.title}</h2>
                         <h3>🗨️ {authorName(post.userId)}</h3>
                         <p>{truncate(post.body)}</p>
-                        <button className="button">Show more...</button>
+                        <button className="button"><Link to="/detail">Show more...</Link></button>
                         <button className="button">Comments ({commentsCount(post.id)})</button>
                     </div>
                 ))}
                 </ul>
         }
 
-        
-        {/*<Post title={post.title} body={post.body} author={post.author} />*/}
-
         </>
 
 
-
-
-
     );
-
 };
 
 

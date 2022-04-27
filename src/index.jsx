@@ -10,46 +10,25 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
 } from "react-router-dom";
 
 const App = () => {
   
   return (
 
-    
-  <div className="container">
-
-
-    <header>
-	    zde bude později menu
-    </header>
-
-    <Header title={'notice board'} />
-    <Main />
-
-
-
-
-
-
-
-
-   {/* <Detail /> */}
-
-   {/* 
-   Využití React Routeru na "přepínání" detailu (obsahu)? 
-   Umí aplikaci vrátit na obsah, na který má adresa ukazovat.
-   Aplikace by nám běžela např. na www.noticeboard.cz. 
-   Po kliknutí na detail příspěvku by se zobrazila nová stránka např. www.noticeboard.cz/posts/3 
-   */}
-
-
-
-
-  </div>
+    <div className="container">
+      <Header title={'notice board'} description={'Need some inspiration? 💡 Take a look at what we have for you.'} />
+      <Main />
+    </div>
   
+)};
 
-  )};
-
-render(<App />, document.querySelector('#app'));
+render(
+  <BrowserRouter>
+    <Routes>
+        <Route path="detail" element={<Detail />} />
+        <Route path="/" element={<App />} />
+        
+    </Routes>
+  </BrowserRouter>, 
+  document.querySelector('#app'));
