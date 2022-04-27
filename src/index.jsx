@@ -4,17 +4,37 @@ import './style.css';
 //import components
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-//import Detail from './components/Detail/Detail';
+import Detail from './components/Detail/Detail';
 //import Router components
-//import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
 
 const App = () => {
   
   return (
+
+    
   <div className="container">
+
+
+    <header>
+	    zde bude později menu
+    </header>
 
     <Header title={'notice board'} />
     <Main />
+
+
+
+
+
+
+
+
    {/* <Detail /> */}
 
    {/* 

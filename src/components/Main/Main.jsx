@@ -29,7 +29,6 @@ const Main = () => {
 
     //finding author
     const authorName = (authorId) => {
-
         return users.find((user) => {
            if (user.id === authorId) {
                 return true
@@ -44,28 +43,26 @@ const Main = () => {
        return comments.filter(comment => comment.postId === postId).length
     }
 
-
-    //fce na zkrácení zobrazovaného textu mi nefunguje, vyřešeno pomocí CSS
-    const truncate = ({bodyLength}) => {
-        return bodyLength?.length > 50 
-        ? `${bodyLength.substring(0, 30)}...` 
-        : bodyLength;
-}
-
+    //text truncator 
+    const truncate = (textLength) => {
+        return textLength.length > 60 
+        ? `${textLength.substring(0, 50)}...` 
+        : textLength;
+    }
 
     return (
         <>
         { 
-            (posts === null || users === null || comments === null) //když je alespoň jedno z nich null
-            ? <p class="loading">loading data...</p> 
+            (posts === null || users === null || comments === null) //když je alespoň jedno z nich null, tak zobraz <p>, jinak zobraz <ul>
+            ? <p className="loading">loading data...</p> 
             :   <ul>
                 {posts.map(post => (
                     <div key={post.id} className="post">
                         <h2>{post.title}</h2>
                         <h3>🗨️ {authorName(post.userId)}</h3>
-                        <p className="truncate">{post.body}</p>
+                        <p>{truncate(post.body)}</p>
                         <button className="button">Show more...</button>
-                        <button className="button">Comments ({commentsCount(post.Id)})</button>
+                        <button className="button">Comments ({commentsCount(post.id)})</button>
                     </div>
                 ))}
                 </ul>
